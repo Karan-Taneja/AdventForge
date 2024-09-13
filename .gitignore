@@ -1,0 +1,45 @@
+# General
+*.log
+*.tmp
+*.temp
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+pnpm-lock.yaml
+package-lock.json
+
+# Deno
+deno.lock
+
+# Nuxt.js
+.nuxt/
+dist/
+.output/
+
+# Build output
+build/
+
+# IDE/Editor files
+.idea/
+.vscode/
+*.suo
+*.user
+*.sln
+*.sublime-project
+*.sublime-workspace
+
+# Environment variables
+.env
+.env.*
+!.env.example  # Keep example environment files (if you have them)
+
+# Sensitive information
+*.key
+*.crt
+*.pem
