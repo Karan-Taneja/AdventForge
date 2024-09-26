@@ -1,12 +1,35 @@
-FROM golang:1.21-alpine3.18
+# Use the official Golang image as the base image
+FROM golang:1.23 as builder
 
+# Set the Current Working Directory inside the container
 WORKDIR /app
 
-COPY ./go.mod ./go.sum ./
+# Copy go mod and sum files
+COPY go.mod go.sum ./
+
+# Download all dependencies. Dependencies will be cached if the go.mod and go.sum files are not changed
 RUN go mod download
 
-COPY ./src ./src
+# Copy the source from the current directory to the Working Directory inside the container
+COPY . .
 
-RUN go build -o adventforge-backend ./src/main.go
+# Build the Go app
+RUN go build -o main ./cmd
 
-CMD ["./adventforge-backend"]
+# Use a minimal base image to reduce the size of the final image
+FROM alpine:latest
+
+# Set the Current Working Directory inside the container
+WORKDIR /root/
+
+# Copy the Pre-built binary file from the previous stage
+COPY --from=builder /app/main .
+
+# Copy the .env file
+COPY .env .
+
+# Expose port 8080 to the outside world
+EXPOSE 8080
+
+# Command to run the executable
+CMD ["./main"]
