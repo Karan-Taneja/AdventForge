@@ -20,8 +20,15 @@ type Router struct {
 }
 
 func NewRouter() *Router {
-	if err := godotenv.Load("../../../.env"); err != nil {
-		log.Fatalf("Error loading the .env file: %v", err)
+	// Check if running in GitHub Actions
+	if os.Getenv("GITHUB_ACTIONS") == "true" {
+		log.Println("Running in GitHub Actions, skipping .env file load")
+	} else {
+		// Load environment variables from .env file
+		err := godotenv.Load("../../.env")
+		if err != nil {
+			log.Fatalf("Error loading .env file")
+		}
 	}
 	r := chi.NewRouter()
 

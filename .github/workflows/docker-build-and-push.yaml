@@ -29,7 +29,7 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v2
         with:
-          go-version: '1.23.1'
+          go-version: '1.17'
 
       - name: Run backend tests
         working-directory: ./backend
@@ -37,18 +37,27 @@ jobs:
           go test ./...
 
       # Run frontend tests (Node.js)
-      # - name: Run frontend tests
-      #   working-directory: ./frontend
-      #   run: |
-      #     npm install
-      #     npm test
+      - name: Run frontend tests
+        working-directory: ./frontend
+        run: |
+          npm install
+          if ls test/*.js 1> /dev/null 2>&1; then
+            npm test
+          else
+            echo "No frontend tests found"
+          fi
 
       - name: Build and push backend image
         uses: docker/build-push-action@v2
         with:
-          context: ./backend
+          context: .
+          file: ./backend/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/adventforge-backend:latest
+          build-args:
+            API_URL: ${{ secrets.API_URL }}
+            REDIRECT_URI: ${{ secrets.REDIRECT_URI }}
+            LOGOUT_URI: ${{ secrets.LOGOUT_URI }}
 
       - name: Build and push frontend image
         uses: docker/build-push-action@v2

@@ -1,10 +1,17 @@
 services:
   backend:
-    build: ./backend 
+    build:
+      context: ./backend
+      args:
+        API_URL: ${API_URL}
+        REDIRECT_URI: ${REDIRECT_URI}
+        LOGOUT_URI: ${LOGOUT_URI}
     ports:
       - "8080:8080"
-    env_file:
-      - ./.env
+    environment:
+      - API_URL=${API_URL}
+      - REDIRECT_URI=${REDIRECT_URI}
+      - LOGOUT_URI=${LOGOUT_URI}
 
   frontend:
     build: ./frontend
