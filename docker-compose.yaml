@@ -1,13 +1,21 @@
-version: '3'
 services:
   backend:
-    build: ./backend 
+    build:
+      context: ./backend
+      args:
+        API_URL: ${API_URL}
+        REDIRECT_URI: ${REDIRECT_URI}
+        LOGOUT_URI: ${LOGOUT_URI}
     ports:
       - "8080:8080"
     environment:
-      - PORT=8080
+      - API_URL=${API_URL}
+      - REDIRECT_URI=${REDIRECT_URI}
+      - LOGOUT_URI=${LOGOUT_URI}
 
   frontend:
     build: ./frontend
     ports:
-      - "3000:3000"
+      - "3000:80"
+    depends_on:
+      - backend

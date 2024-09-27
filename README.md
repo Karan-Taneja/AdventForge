@@ -1,57 +1,72 @@
 # AdventForge
 
+## Table of Contents
+
+1. [Introduction](#introduction)
+2. [Backend Setup](#backend-setup)
+3. [Frontend Setup](#frontend-setup)
+4. [Dockerized Setup (Alternative)](#dockerized-setup-alternative)
+5. [License](#license)
+6. [Disclaimer](#disclaimer)
+
+## Introduction
+
 **AdventForge** is a work-in-progress project aiming to create a platform similar to D&D Beyond, offering tools and resources for Dungeons & Dragons players and Dungeon Masters.
 
-## Features (Planned or In-Progress)
+## Backend Setup
 
-* **User Authentication & Profiles:** Secure user accounts with Google authentication, enabling personalized experiences and data management.
-* **Character Creation & Management:** Create, customize, and manage D&D characters, including stats, abilities, equipment, and spells. 
-
-## Technologies Used
-
-* **Backend:** Go, Jet, Graphjin
-* **Frontend:** Nuxt 3, Vite, Vue
-* **Database:** Postgres
-
-## Getting Started (Development Setup)
-
-**Prerequisites:**
-
-* **Go:** Install Go 1.21 or later 
-* **Node.js & pnpm:** Install Node.js and pnpm
-* **Docker & Docker Compose:** Install Docker and Docker Compose for containerized development
-* **Database:** Setup PostgreSQL
-
-**Steps:**
-
-1. **Clone the repository:** 
-   ```bash
-   git clone [https://github.com/Karan-Taneja/AdventForge.git](https://github.com/Karan-Taneja/AdventForge.git)
-   cd AdventForge
+1. Navigate to the backend directory:
+   ```sh
+   cd backend
    ```
 
-2. **Backend Setup:**
-   * Navigate to the `backend` directory.
-   * Install Go dependencies: `go mod download`
-   * Set up your database connection (refer to the backend code for specific configuration)
-   * Run the backend server: `go run main.go` (or use a tool like `air` for hot reloading)
+2. Install Go dependencies:
+   ```sh
+   go mod download
+   ```
 
-3. **Frontend Setup:**
-   * Navigate to the `frontend` directory
-   * Install dependencies: `pnpm install`
-   * Run the development server: `pnpm run dev`
+3. Set up your database connection:
+   - Provide details on how to configure the database connection, such as setting environment variables or updating configuration files.
 
-4. **Dockerized Setup (Alternative)**
-    * From the project root, build and run the containers using Docker Compose:
-      ```bash
-      docker-compose up --build
-      ```
+4. Run the backend server:
+   ```sh
+   go run main.go
+   ```
+   - Alternatively, use a tool like [`air`](https://github.com/cosmtrek/air) for hot reloading:
+     ```sh
+     air
+     ```
+
+## Frontend Setup
+
+1. Navigate to the frontend directory:
+   ```sh
+   cd frontend
+   ```
+
+2. Install dependencies:
+   ```sh
+   pnpm install
+   ```
+
+3. Run the development server:
+   ```sh
+   pnpm run dev
+   ```
+
+## Dockerized Setup (Alternative)
+
+1. From the project root, build and run the containers using Docker Compose:
+   ```sh
+   docker-compose up --build
+   ```
 
 ## License
 
-This project is licensed under the [MIT License](https://opensource.org/license/mit).
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
 
-**Disclaimer**
+## Disclaimer
 
-* This project is a work in progress and may not yet have all the features of a full-fledged D&D Beyond clone. 
-* The development roadmap and feature set are subject to change. 
+- This project is a work in progress and may not yet have all the features of a full-fledged D&D Beyond clone.
+- The development roadmap and feature set are subject to change.
+```

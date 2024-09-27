@@ -1,19 +1,7 @@
 {
-  "extends": "./.nuxt/tsconfig.json",
-  "compilerOptions": {
-    "target": "es6",                          
-    "module": "es6",                          
-    "moduleResolution": "node",                  
-    "strict": true,                              
-    "esModuleInterop": true,                     
-    "skipLibCheck": true,                        
-    "forceConsistentCasingInFileNames": true,    
-    "typeRoots": [
-      "./node_modules/@types",                               
-    ]
-  },
-  "exclude": [
-    "node_modules",                             
-    "dist"                                      
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
   ]
 }
