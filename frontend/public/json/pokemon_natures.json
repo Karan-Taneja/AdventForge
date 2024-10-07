@@ -1,0 +1,104 @@
+{
+  "natures": [
+    {
+      "name": "Lonely",
+      "increased": "attack",
+      "decreased": "defense"
+    },
+    {
+      "name": "Brave",
+      "increased": "attack",
+      "decreased": "speed"
+    },
+    {
+      "name": "Adamant",
+      "increased": "attack",
+      "decreased": "specialAttack"
+    },
+    {
+      "name": "Naughty",
+      "increased": "attack",
+      "decreased": "specialDefense"
+    },
+    {
+      "name": "Bold",
+      "increased": "defense",
+      "decreased": "attack"
+    },
+    {
+      "name": "Relaxed",
+      "increased": "defense",
+      "decreased": "speed"
+    },
+    {
+      "name": "Impish",
+      "increased": "defense",
+      "decreased": "specialAttack"
+    },
+    {
+      "name": "Lax",
+      "increased": "defense",
+      "decreased": "specialDefense"
+    },
+    {
+      "name": "Timid",
+      "increased": "speed",
+      "decreased": "attack"
+    },
+    {
+      "name": "Hasty",
+      "increased": "speed",
+      "decreased": "defense"
+    },
+    {
+      "name": "Jolly",
+      "increased": "speed",
+      "decreased": "specialAttack"
+    },
+    {
+      "name": "Naive",
+      "increased": "speed",
+      "decreased": "specialDefense"
+    },
+    {
+      "name": "Modest",
+      "increased": "specialAttack",
+      "decreased": "attack"
+    },
+    {
+      "name": "Mild",
+      "increased": "specialAttack",
+      "decreased": "defense"
+    },
+    {
+      "name": "Quiet",
+      "increased": "specialAttack",
+      "decreased": "speed"
+    },
+    {
+      "name": "Rash",
+      "increased": "specialAttack",
+      "decreased": "specialDefense"
+    },
+    {
+      "name": "Calm",
+      "increased": "specialDefense",
+      "decreased": "attack"
+    },
+    {
+      "name": "Gentle",
+      "increased": "specialDefense",
+      "decreased": "defense"
+    },
+    {
+      "name": "Sassy",
+      "increased": "specialDefense",
+      "decreased": "speed"
+    },
+    {
+      "name": "Careful",
+      "increased": "specialDefense",
+      "decreased": "specialAttack"
+    }
+  ]
+}
