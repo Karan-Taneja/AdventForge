@@ -74,8 +74,8 @@ export default {
 img {
   width: 64px; /* 16 units */
   height: 64px; /* 16 units */
-  border-radius: 8px; /* Adjust as needed */
-  margin-right: 16px; /* Adjust as needed */
+  border-radius: 8px;
+  margin-right: 16px;
 }
 
 .btn {
