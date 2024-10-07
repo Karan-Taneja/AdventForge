@@ -1,9 +1,15 @@
 import { mount } from '@vue/test-utils';
-import { describe, it, expect, beforeEach, vi } from 'vitest';
+import { describe, it, expect, beforeEach, vi, Mock } from 'vitest';
 import CharacterSheet from '@/pages/CharacterSheet.vue';
 import { mockApi } from '@/shared/mocks/api';
+import { useRoute } from 'vue-router';
 
-// Mock the API module
+// Mock the useRoute function
+vi.mock('vue-router', () => ({
+  useRoute: vi.fn(),
+}));
+
+// Mock the API
 vi.mock('@/shared/mocks/api', () => ({
   mockApi: {
     getComputedCharacter: vi.fn(),
@@ -11,73 +17,59 @@ vi.mock('@/shared/mocks/api', () => ({
 }));
 
 describe('CharacterSheet.vue', () => {
-  let wrapper;
-
-  beforeEach(async () => {
-    // Type assertion to let TypeScript know that getCharacter is a mock function
-    const getComputedCharacterMock = mockApi.getComputedCharacter as ReturnType<
-      typeof vi.fn
-    >;
-
-    // Use mockResolvedValue to mock the resolved value of the promise
-    getComputedCharacterMock.mockResolvedValue({
-      id: '1',
-      description: {
-        image: 'character.jpg',
-        base_stats: {
-          attack: 10,
-          defense: 8,
-          specialAttack: 12,
-          specialDefense: 9,
-          speed: 7,
-          hp: 15,
-        },
+  const mockCharacter = {
+    name: 'Test Character',
+    description: {
+      base_stats: {
+        hp: 100,
       },
+    },
+  };
+
+  beforeEach(() => {
+    (useRoute as Mock).mockReturnValue({
+      params: { characterId: '1' },
     });
-
-    wrapper = mount(CharacterSheet, {
-      props: {
-        characterId: '1',
-      },
-    });
-
-    await wrapper.vm.$nextTick(); // Wait for the next DOM update cycle
+    (mockApi.getComputedCharacter as Mock).mockResolvedValue(mockCharacter);
   });
 
-  it('renders character image', () => {
-    const img = wrapper.find('.character-image');
-    expect(img.exists()).toBe(true);
-    expect(img.attributes('src')).toBe('character.jpg');
+  it('renders character data correctly', async () => {
+    const wrapper = mount(CharacterSheet);
+    await wrapper.vm.$nextTick(); // Wait for onMounted to be called
+    await wrapper.vm.$nextTick(); // Wait for the next DOM update
+
+    expect(wrapper.text()).toContain('Test Character');
+    expect(wrapper.text()).toContain('Current HP: 100');
+    expect(wrapper.text()).toContain('Max HP: 100');
+    expect(wrapper.text()).toContain('Temp HP: 0');
   });
 
-  it('renders character stats', () => {
-    const stats = wrapper.findAll('.stat');
-    expect(stats.length).toBe(6);
-    expect(stats.at(0).text()).toContain('attack: 10');
-    expect(stats.at(1).text()).toContain('defense: 8');
-    expect(stats.at(2).text()).toContain('specialAttack: 12');
-    expect(stats.at(3).text()).toContain('specialDefense: 9');
-    expect(stats.at(4).text()).toContain('speed: 7');
-    expect(stats.at(5).text()).toContain('hp: 15');
+  it('heals the character correctly', async () => {
+    const wrapper = mount(CharacterSheet);
+    await wrapper.vm.$nextTick(); // Wait for onMounted to be called
+    await wrapper.vm.$nextTick(); // Wait for the next DOM update
+
+    await wrapper.find('input').setValue(10);
+    await wrapper.find('button').trigger('click'); // Heal button
+
+    expect(wrapper.text()).toContain('Current HP: 100'); // Should not exceed max HP
   });
 
-  it('renders HP section', () => {
-    const hpInfo = wrapper.find('.hp-info');
-    expect(hpInfo.exists()).toBe(true);
-    expect(hpInfo.text()).toContain('15 / 15');
-    expect(hpInfo.text()).toContain('Temp: 0');
+  it('damages the character correctly', async () => {
+    const wrapper = mount(CharacterSheet);
+    await wrapper.vm.$nextTick(); // Wait for onMounted to be called
+    await wrapper.vm.$nextTick(); // Wait for the next DOM update
+
+    await wrapper.find('input').setValue(10);
+    await wrapper.findAll('button').at(1).trigger('click'); // Damage button
+
+    expect(wrapper.text()).toContain('Current HP: 90');
   });
 
-  it('handles heal and damage actions', async () => {
-    wrapper.setData({ hpChange: 5 });
+  it('shows loading message when character data is not yet loaded', () => {
+    (mockApi.getComputedCharacter as Mock).mockResolvedValueOnce(null);
+    const wrapper = mount(CharacterSheet);
 
-    // Heal action
-    await wrapper.find('.btn-heal').trigger('click');
-    expect(wrapper.vm.currentHp).toBe(15); // Max HP is 15
-
-    // Damage action
-    wrapper.setData({ hpChange: 3 });
-    await wrapper.find('.btn-damage').trigger('click');
-    expect(wrapper.vm.currentHp).toBe(12);
+    expect(wrapper.text()).toContain('Loading character data...');
   });
 });

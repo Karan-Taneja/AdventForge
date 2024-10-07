@@ -2,13 +2,14 @@
   <div class="flex flex-col items-center justify-center">
     <div class="bg-white p-8 rounded-lg w-full max-w-md">
       <h2 class="text-2xl font-bold mb-6 text-center">Login</h2>
-      <form @submit.prevent="login" class="flex flex-col">
+      <form @submit.prevent="handleSubmit" class="flex flex-col">
         <div class="mb-4">
           <label
             for="login-username-or-email"
             class="block text-sm font-medium text-gray-700"
-            >Username or Email</label
           >
+            Username or Email
+          </label>
           <input
             type="text"
             id="login-username-or-email"
@@ -17,11 +18,9 @@
             placeholder="Enter your username or email"
             class="mt-1 p-2 w-full border border-gray-300 rounded-md"
           />
-          <span
-            v-if="loginErrors.usernameOrEmail"
-            class="text-red-500 text-sm"
-            >{{ loginErrors.usernameOrEmail }}</span
-          >
+          <span v-if="loginErrors.usernameOrEmail" class="text-red-500 text-sm">
+            {{ loginErrors.usernameOrEmail }}
+          </span>
         </div>
         <div class="mb-4 relative">
           <label
@@ -42,7 +41,7 @@
             <button
               type="button"
               @click="togglePasswordVisibility"
-              class="absolute right-0 pr-3 flex items-center text-sm leading-5"
+              class="absolute right-2 text-gray-600"
             >
               {{ showPassword ? 'Hide' : 'Show' }}
             </button>
@@ -53,65 +52,54 @@
         </div>
         <button
           type="submit"
-          class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 transition duration-300"
+          class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-700"
         >
           Login
         </button>
+        <p v-if="errorMessage" class="text-red-500 text-sm mt-2">
+          {{ errorMessage }}
+        </p>
       </form>
-      <div class="mt-4 text-center">
-        <a href="#" class="text-blue-500 hover:underline"
-          >Forgot your password?</a
-        >
-      </div>
     </div>
   </div>
 </template>
 
-<script>
-import { mockApi } from '@/shared/mocks/api';
+<script setup lang="ts">
+import { ref, defineEmits } from 'vue';
 
-export default {
-  data() {
-    return {
-      loginUsernameOrEmail: '',
-      loginPassword: '',
-      loginErrors: {
-        usernameOrEmail: '',
-        password: '',
-      },
-      showPassword: false,
-    };
-  },
-  methods: {
-    togglePasswordVisibility() {
-      this.showPassword = !this.showPassword;
-    },
-    async login() {
-      this.loginErrors.usernameOrEmail = '';
-      this.loginErrors.password = '';
+const loginUsernameOrEmail = ref('');
+const loginPassword = ref('');
+const showPassword = ref(false);
+const loginErrors = ref({
+  usernameOrEmail: '',
+  password: '',
+});
+const errorMessage = ref('');
 
-      if (!this.loginUsernameOrEmail) {
-        this.loginErrors.usernameOrEmail = 'Username or email is required.';
-      }
-      if (!this.loginPassword) {
-        this.loginErrors.password = 'Password is required.';
-      }
+const emit = defineEmits(['login']);
 
-      if (!this.loginErrors.usernameOrEmail && !this.loginErrors.password) {
-        // Add your login API call here
-        const { loginUsernameOrEmail, loginPassword } = this;
+const togglePasswordVisibility = () => {
+  showPassword.value = !showPassword.value;
+};
 
-        try {
-          await mockApi.login(loginUsernameOrEmail, loginPassword);
+const handleSubmit = () => {
+  loginErrors.value.usernameOrEmail = '';
+  loginErrors.value.password = '';
+  errorMessage.value = '';
 
-          this.$router.push('/');
-        } catch (error) {
-          console.log('err: ', error);
-          this.loginErrors.usernameOrEmail = 'Invalid username or email.';
-          this.loginErrors.password = 'Invalid password.';
-        }
-      }
-    },
-  },
+  if (!loginUsernameOrEmail.value) {
+    loginErrors.value.usernameOrEmail = 'Username or email is required.';
+    return;
+  }
+  if (!loginPassword.value) {
+    loginErrors.value.password = 'Password is required.';
+    return;
+  }
+
+  // Emit login event with user data
+  emit('login', {
+    usernameOrEmail: loginUsernameOrEmail.value,
+    password: loginPassword.value,
+  });
 };
 </script>

@@ -14,32 +14,25 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
+import { onMounted } from 'vue';
+import { useRouter } from 'vue-router';
 import LoginForm from '@/components/LoginForm.vue';
 import SignUpForm from '@/components/SignUpForm.vue';
 
-export default {
-  components: {
-    LoginForm,
-    SignUpForm,
-  },
-  mounted() {
-    // Check for logged_in_user in local storage
-    const loggedInUser = localStorage.getItem('logged_in_user');
-    if (loggedInUser) {
-      // Redirect to home page if user is found
-      this.$router.push('/');
-    }
-  },
-};
+const router = useRouter();
+
+onMounted(() => {
+  const loggedInUser = localStorage.getItem('logged_in_user');
+  if (loggedInUser) {
+    router.push('/');
+  }
+});
 </script>
 
 <style scoped>
 .auth-container {
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
+  min-height: 100vh;
+  background-color: #f7fafc;
 }
 </style>

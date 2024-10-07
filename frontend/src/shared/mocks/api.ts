@@ -14,50 +14,8 @@ import {
   PokemonSpecies,
 } from '../types/character';
 import { User } from '../types/user';
-import { getFromCache, setToCache } from '../utils/cache';
-
-const fetchMockData = async (filename: string) => {
-  const cachedData = getFromCache(filename);
-  if (cachedData) {
-    return cachedData;
-  }
-
-  try {
-    const response = await fetch(`/json/${filename}.json`);
-    if (!response.ok) {
-      throw new Error(`Network response was not ok: ${response.statusText}`);
-    }
-
-    // Log the raw response text
-    const responseText = await response.text();
-
-    // Parse the response text as JSON
-    const data = JSON.parse(responseText);
-
-    setToCache(filename, data);
-    return data;
-  } catch (error) {
-    console.error(`Error fetching mock data for ${filename}:`, error);
-    throw error;
-  }
-};
-
-const loadAllDataIntoCache = async () => {
-  const filenames = [
-    'characters',
-    'option_choices',
-    'pokemon_advance_classes',
-    'pokemon_classes',
-    'pokemon_natures',
-    'pokemon_species',
-    'pokemon_type_matchups',
-    'users',
-  ];
-  for (const filename of filenames) {
-    const data = await fetchMockData(filename);
-    setToCache(filename, data);
-  }
-};
+import { loadAllDataIntoCache, setToCache } from '../utils/cache';
+import { fetchMockData } from '../utils/mockData';
 
 export const initializeMockApi = async () => {
   await loadAllDataIntoCache();

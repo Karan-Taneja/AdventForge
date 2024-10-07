@@ -1,3 +1,5 @@
+import { fetchMockData } from './mockData';
+
 const cache = new Map<string, any>();
 
 export const getFromCache = (key: string) => {
@@ -21,4 +23,21 @@ export const setToCache = (key: string, value: any) => {
 export const clearCache = () => {
   cache.clear();
   localStorage.clear();
+};
+
+export const loadAllDataIntoCache = async () => {
+  const filenames = [
+    'characters',
+    'option_choices',
+    'pokemon_advance_classes',
+    'pokemon_classes',
+    'pokemon_natures',
+    'pokemon_species',
+    'pokemon_type_matchups',
+    'users',
+  ];
+  for (const filename of filenames) {
+    const data = await fetchMockData(filename);
+    setToCache(filename, data);
+  }
 };
