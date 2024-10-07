@@ -1,0 +1,173 @@
+{
+  "classes": [
+    {
+      "name": "Champion",
+      "description": "You live for battle and aim to show off your prowess. Jumping into the fray is your style and you're always ready to take on any foe. While sometimes you may like to defeat enemies in a one-on-one showdown, you also can enjoy a proper melee. Either way, you budy can rely on you in a messy situation",
+      "features": [
+        {
+          "name": "New Passive",
+          "description": "Choose a new passive ability from the list of champion passives",
+          "options": [
+            {
+              "name": "Choose New Passive",
+              "type": "pac_champion_new_passives",
+              "quantity": 1
+            }
+          ],
+          "bonuses": [],
+          "level": 1
+        },
+        {
+          "name": "Center Stage",
+          "description": "You're at the center of battle and you're right at home. When moving you may ignore foes and treat them as normal terrain as long as you do not finish your turn on top of them. When aiming ranged attacks, treat foes as normal terrain that do not create hindering or blocking penalties in the way of a target",
+          "options": [],
+          "bonuses": [
+            {
+              "name": "Center Stage",
+              "type": "passive",
+              "description": "You're at the center of battle and you're right at home. When moving you may ignore foes and treat them as normal terrain as long as you do not finish your turn on top of them. When aiming ranged attacks, treat foes as normal terrain that do not create hindering or blocking penalties in the way of a target"
+            }
+          ],
+          "level": 1
+        },
+        {
+          "name": "Into the Fray",
+          "description": "You live for battle and relish in the excitment that follows every strike. Your Defense and Special Defense is +1 against foes who you've damaged since your last turn. Additionally, all of your melee attacks now have a range of 10ft.",
+          "options": [],
+          "bonuses": [
+            {
+              "name": "Into the Fray - Stat Boost",
+              "type": "passive",
+              "description": "Your Defense and Special Defense is +1 against foes who you've damaged since your last turn."
+            },
+            {
+              "name": "Into the Fray - Melee Range",
+              "type": "passive",
+              "description": "All of your melee attacks now have a range of 10ft."
+            }
+          ],
+          "level": 1
+        },
+        {
+          "name": "Choose a Feature",
+          "description": "Choose a feature from the list of champion features",
+          "options": [
+            {
+              "name": "Choose Feature",
+              "type": "pac_champion_features_level",
+              "quantity": 1
+            }
+          ],
+          "bonuses": [],
+          "level": 2
+        },
+        {
+          "name": "Run Them Through",
+          "description": "When it comes to fighting, you're hitting harder than the rest. 3/day, if you miss an attack, you may have the intended target(s) take 4 damage. If the attack would have been super effective, the intended target(s) take 8 damage instead. If the the attack would have been extremely effective, the intended target(s) take 12 damage instead.",
+          "options": [],
+          "bonuses": [
+            {
+              "name": "Run Them Through",
+              "type": "action",
+              "description": {
+                "action_type": "free",
+                "frequency": {
+                  "quantity": 3,
+                  "timeframe": "day"
+                },
+                "text": "If you miss an attack, you may have the intended target(s) take 4 damage. If the attack would have been super effective, the intended target(s) take 8 damage instead. If the the attack would have been extremely effective, the intended target(s) take 12 damage instead."
+              }
+            }
+          ],
+          "level": 4
+        },
+        {
+          "name": "Choose a Feature",
+          "description": "Choose a feature from the list of champion features",
+          "options": [
+            {
+              "name": "Choose Feature",
+              "type": "pac_champion_features_level_5",
+              "quantity": 1
+            }
+          ],
+          "bonuses": [],
+          "level": 5
+        },
+        {
+          "name": "One Step Ahead",
+          "description": "As the battle stretches towards, you adapt your style to fit the battle's needs. 3/day you may add the following effect to one of your attacks. 'On hit, gain either +1 Defense or +1 Special Defense for 10 mins (this effect may stack).'",
+          "options": [],
+          "bonuses": [
+            {
+              "name": "One Step Ahead",
+              "type": "action",
+              "description": {
+                "action_type": "free",
+                "frequency": {
+                  "quantity": 3,
+                  "timeframe": "day"
+                },
+                "text": "On hit, gain either +1 Defense or +1 Special Defense for 10 mins (this effect may stack)."
+              }
+            }
+          ],
+          "level": 6
+        },
+        {
+          "name": "Signature Move",
+          "description": "Your allies are relying on you to keep foes at bay, so you've developed your own technique to do so. After 8 hours of rest, you may learn Signature Move, choose its type from one of your own types and choose it to either use Attack or Special Attack. After 8 hours of rest you may change your choices for Signature Move. You may not have more than one instance of Signature Move on your move list.",
+          "options": [],
+          "bonuses": [],
+          "level": 8
+        },
+        {
+          "name": "Choose a Feature",
+          "description": "Choose a feature from the list of champion features",
+          "options": [
+            {
+              "name": "Choose Feature",
+              "type": "pac_champion_features_level_9",
+              "quantity": 1
+            }
+          ],
+          "bonuses": [],
+          "level": 9
+        },
+        {
+          "name": "Direct Challenge",
+          "description": "Grandstanding in the middle of battle can attract dangerous attention, but sometimes it help in order to take control of the field of battle. 3/day you may add the following ability to any of your moves after rolling your accuracy check, 'On hit, the targets may only use attacks that target you for 1 min.' Additionally, when targeted by a foe that was goaded by Direct Challenge, your Defense, Special Defense, and Speed +2.",
+          "options": [],
+          "bonuses": [
+            {
+              "name": "Direct Challenge",
+              "type": "action",
+              "description": {
+                "action_type": "free",
+                "frequency": {
+                  "quantity": 3,
+                  "timeframe": "day"
+                },
+                "text": "On hit, the targets may only use attacks that target you for 1 min. Additionally, when targeted by a foe that was goaded by Direct Challenge, your Defense, Special Defense, and Speed +2."
+              }
+            }
+          ],
+          "level": 10
+        },
+        {
+          "name": "Ultra Champion",
+          "description": "The longer the battle, the more opponents you take down, the more your power grows. 3/day, gain the Champion Boost passive until the end of combat.",
+          "options": [],
+          "bonuses": [
+            {
+              "name": "Champion Boost",
+              "type": "passive",
+              "description": "Whenever you knock out a foe, your highest stat is raised +2 for 10 mins. If you have two or more stars tied for your highest"
+            }
+          ],
+          "level": 11
+        }
+      ]
+    }
+  ]
+}

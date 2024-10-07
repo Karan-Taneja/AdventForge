@@ -1,0 +1,161 @@
+{
+  "pac_champion_new_passives": [
+    {
+      "name": "Carry On",
+      "type": "passive",
+      "description": "Whenever an ally is knocked out, recover 1d6 HP."
+    },
+    {
+      "name": "Close Quarters",
+      "type": "passive",
+      "description": "Add +1 during accuracy checks whenever you use a melee attack"
+    },
+    {
+      "name": "Dynamic Entry",
+      "type": "passive",
+      "description": "You have +3 to your first accuracy check each combat"
+    }
+  ],
+  "pac_champion_features_level_2": [
+    {
+      "name": "Let's Have Some Fun",
+      "description": "Being the center of a brawl has always made everything more interesting and you're ready to throw down. You deal +1 damage during successful attacks for every foe within 20ft of you.",
+      "options": [],
+      "bonuses": [
+        {
+          "type": "passive",
+          "name": "High Pressure Performer",
+          "description": "You deal +1 damage during successful attacks for every foe within 20ft of you."
+        }
+      ],
+      "level": 2
+    },
+    {
+      "name": "No Equal",
+      "description": "Nothing is more exhilarating than facing off against another in a duel and completely shutting them down. You are dueling when you have no allies within 20ft of you since your last action, and you have only dealt damage to a single foe on your last turn. 1/day any of your moves have Priority against a foe while Dueling (This cannot be used with Z-Moves, Max Moves, or G-Max moves). In addition, your attacks have +1 during you accuracy checks against a foe while Dueling.",
+      "options": [],
+      "bonuses": [
+        {
+          "type": "action",
+          "name": "Duel Master",
+          "description": {
+            "action_type": "free",
+            "frequency": {
+              "times": 1,
+              "timeframe": "day"
+            },
+            "options": [],
+            "scaling": {},
+            "text": "1/day any of your moves have Priority against a foe while Dueling (This cannot be used with Z-Moves, Max Moves, or G-Max moves)."
+          }
+        }
+      ],
+      "level": 2
+    }
+  ],
+  "pac_champion_features_level_5": [
+    {
+      "name": "So Much Work Ahead",
+      "description": "When you're fighting many foes you adapt your attacks to use different tricks. 3/day you may add the following effect to one of your non-scatter attacks, 'This attack is a Scatter attack. Up to 3 attacks. The second atack on hit uses 1d8 as its dice roll for damage. The third attack on hit uses 1d12 as its dice roll for damage. Each attack must be directed at a different target.' Additionally when you deal damage with a scatter attack, whenever you hit a new target beyond your first, deal an additional 4 damage on hit.",
+      "options": [],
+      "bonuses": [
+        {
+          "type": "action",
+          "name": "Adaptive Combatant",
+          "description": {
+            "action_type": "free",
+            "frequency": {
+              "times": 3,
+              "timeframe": "day"
+            },
+            "options": [],
+            "scaling": {},
+            "text": "3/day you may add the following effect to one of your non-scatter attacks, 'This attack is a Scatter attack. Up to 3 attacks. The second atack on hit uses 1d8 as its dice roll for damage. The third attack on hit uses 1d12 as its dice roll for damage. Each attack must be directed at a different target.'"
+          }
+        }
+      ],
+      "level": 5
+    },
+    {
+      "name": "Stand Ready",
+      "description": "The bigger they are, the harder you must fight to take them down- no one gets the best of you. 3/day you may add the following effect to one of your attacks while Dueling after you roll your accuracy check: 'On miss, add +3 to your next attack against the same foe that you are Dueling. If you hit the target you are Dueling with your new action, they are Stunned.' Additionally, whenever you begin dueling a new target, you first successful attack deals +6 damage.'",
+      "options": [],
+      "bonuses": [
+        {
+          "type": "action",
+          "name": "Stand Ready",
+          "description": {
+            "action_type": "free",
+            "frequency": {
+              "times": 3,
+              "timeframe": "day"
+            },
+            "options": [],
+            "scaling": {},
+            "text": "3/day you may add the following effect to one of your attacks while Dueling after you roll your accuracy check: 'On miss, add +3 to your next attack against the same foe that you are Dueling. If you hit the target you are Dueling with your new action, they are Stunned.'"
+          }
+        }
+      ],
+      "level": 5
+    }
+  ],
+  "pac_champion_features_level_9": [
+    {
+      "name": "Never Hold Back",
+      "description": "Time to show your challengers their place. While Dueling, you Z-Moves, regardless fo the type, have Priority and they deal 10d12 but have one of the following ranges 'Melee' or, 'Ranged(60ft)",
+      "options": [],
+      "bonuses": [
+        {
+          "type": "passive",
+          "name": "Never Hold Back",
+          "description": "While Dueling, you Z-Moves, regardless fo the type, have Priority and they deal 10d12 but have one of the following ranges 'Melee' or, 'Ranged(60ft)'"
+        }
+      ],
+      "level": 9
+    },
+    {
+      "name": "Won't Let Up",
+      "description": "When outnumbered ten to one, make your ultimate attack count. Your Z-Moves, regardless of type can have either of the following ranges: 'Melee(60ft burst)', or 'Ranged(50ft, 40ft blast).'",
+      "options": [],
+      "bonuses": [
+        {
+          "type": "passive",
+          "name": "Won't Let Up",
+          "description": "Your Z-Moves, regardless of type can have either of the following ranges: 'Melee(60ft burst)', or 'Ranged(50ft, 40ft blast).'"
+        }
+      ],
+      "level": 9
+    }
+  ],
+  "non_hp_stats": [
+    "Attack",
+    "Defense",
+    "Special Attack",
+    "Special Defense",
+    "Speed"
+  ],
+  "z_moves": [],
+  "mega_evolution_stat_distribution": [
+    {
+      "points": 4,
+      "stats": [
+        "Attack",
+        "Defense",
+        "Special Attack",
+        "Special Defense",
+        "Speed"
+      ]
+    }
+  ],
+  "skill": [],
+  "stats": [
+    "HP",
+    "Attack",
+    "Defense",
+    "Special Attack",
+    "Special Defense",
+    "Speed"
+  ],
+  "pokemon_advance_classes": ["Champion"],
+  "character_types": ["trainer", "pokemon"]
+}

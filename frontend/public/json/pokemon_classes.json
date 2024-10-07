@@ -1,0 +1,412 @@
+{
+  "classes": [
+    {
+      "name": "Pokemon",
+      "features": [
+        {
+          "name": "Born to be a Winner",
+          "description": "You’re different than the other Pokémon in the world; there’s something that drives you towards some kind of special destiny. Choose two different non-HP Stats to increase by 1. In addition, you cannot be captured by a Poke Ball unless you want to be. In addition, your 3/day frequency moves become once-per-combat, or 1/combat, frequency.",
+          "options": [
+            {
+              "name": "Stat Increase",
+              "type": "non_hp_stats",
+              "quantity": 2
+            }
+          ],
+          "bonuses": [],
+          "level": 1
+        },
+        {
+          "name": "Brand New World",
+          "description": "You are a Pokémon and you can communicate with all other Pokémon. You may talk to other Pokémon, you also can recognize potential predators to your species when you see them, even if you’ve never encountered the species before. In addition, you become talented in the Nature and Perception skills, and can make skill checks for Nature and Perception",
+          "options": [],
+          "bonuses": [
+            {
+              "type": "skill",
+              "name": "Nature",
+              "description": "Can make nature skill checks"
+            },
+            {
+              "type": "skill",
+              "name": "Perception",
+              "description": "Can make perception skill checks"
+            }
+          ],
+          "level": 1
+        },
+        {
+          "name": "A Heart So true",
+          "description": "Your courage will always pull you through, giving you the energy to keep going. 5/day, as a free action up to once per round, recover HP according to the following chart.",
+          "options": [],
+          "bonuses": [
+            {
+              "type": "action",
+              "name": "Pull Through",
+              "options": [
+                {
+                  "name": "Modifier Stat",
+                  "type": "stats",
+                  "quantity": 1
+                }
+              ],
+              "description": {
+                "action_type": "free",
+                "frequency": {
+                  "quantity": 5,
+                  "timeframe": "day"
+                },
+                "scaling": {
+                  "default": {
+                    "dice": [
+                      {
+                        "quantity": 1,
+                        "sides": 6
+                      }
+                    ]
+                  },
+                  "4": {
+                    "dice": [
+                      {
+                        "quantity": 1,
+                        "sides": 8
+                      }
+                    ]
+                  },
+                  "6": {
+                    "dice": [
+                      {
+                        "quantity": 1,
+                        "sides": 10
+                      }
+                    ]
+                  },
+                  "8": {
+                    "dice": [
+                      {
+                        "quantity": 2,
+                        "sides": 6
+                      }
+                    ]
+                  },
+                  "10": {
+                    "dice": [
+                      {
+                        "quantity": 2,
+                        "sides": 8
+                      }
+                    ]
+                  },
+                  "12": {
+                    "dice": [
+                      {
+                        "quantity": 2,
+                        "sides": 10
+                      }
+                    ]
+                  },
+                  "14": {
+                    "dice": [
+                      {
+                        "quantity": 2,
+                        "sides": 12
+                      }
+                    ]
+                  },
+                  "16": {
+                    "dice": [
+                      {
+                        "quantity": 2,
+                        "sides": 20
+                      }
+                    ]
+                  }
+                },
+                "text": "Recover HP"
+              }
+            }
+          ],
+          "level": 2
+        },
+        {
+          "name": "Rise to the challenge",
+          "description": "Generally, Pokémon don’t really need to use diplomacy, or operate a car, or… any of these things. But you can! You can make skill checks with any skill that you’re talented with. Choose two skills to become talented with. Any Pokémon can be talented in any skill. For example, if an Onix is making an operate check on a crane, you’ll just figure out how to tell the story that you’re telling",
+          "options": [
+            {
+              "name": "Gain Skill",
+              "type": "skills",
+              "quantity": 2
+            }
+          ],
+          "bonuses": [],
+          "level": 3
+        },
+        {
+          "name": "Studying A to Z",
+          "description": "You’re smart, you’re well travelled, and now you’re talking. You can speak in human languages. Depending on what elemental type you are or your species, it’s possible you talk telepathically, hum in a way that sounds like human language, or just open your mouth and talk with what you’ve got.",
+          "options": [],
+          "bonuses": [],
+          "level": 3
+        },
+        {
+          "name": "So Much to Learn",
+          "description": "You’ve already experienced a lot during your adventures and you’re ready to put that to good use. Pick any two Pokémon moves that you’ve seen before that also match your proficiencies and immediately learn them. In addition, you can learn up to eight moves at a time",
+          "options": [
+            {
+              "name": "Learn Move",
+              "type": "proficieny_moves",
+              "quantity": 2
+            }
+          ],
+          "bonuses": [
+            {
+              "type": "moveset_quantity_change",
+              "name": "So Much to Learn",
+              "options": [],
+              "description": {
+                "scaling": {},
+                "text": "Learn up to 8 moves"
+              }
+            }
+          ],
+          "level": 4
+        },
+        {
+          "name": "Brand New Attitude",
+          "description": "You’re a force of personality. Choose one Pokémon Advance Class. In addition, Choose a new Skill to become talented with. You cannot choose a Skill you are already talented with. In addition, you can change your Nature after an eight hour rest.",
+          "options": [
+            {
+              "name": "Choose Advance Class",
+              "type": "pokemon_advance_classes",
+              "quantity": 1
+            },
+            {
+              "name": "Gain Skill",
+              "type": "talentless_skills",
+              "quantity": 1
+            }
+          ],
+          "bonuses": [
+            {
+              "type": "passive",
+              "name": "Brand New Attitude",
+              "description": "Change Nature after 8 hour rest"
+            }
+          ],
+          "level": 5
+        },
+        {
+          "name": "Born to be a Champion",
+          "description": "You keep growing as your keep proving your worth. Choose two different non-HP Stats to increase by 1. In addition, the first time you fail and accuracy check per day, you can reroll your accuracy check.",
+          "options": [
+            {
+              "name": "Stat Increase",
+              "type": "non_hp_stats",
+              "quantity": 2
+            }
+          ],
+          "bonuses": [
+            {
+              "type": "passive",
+              "name": "Born to be a Champion",
+              "description": {
+                "frequency": {
+                  "quantity": 1,
+                  "timeframe": "day"
+                },
+                "text": "Reroll first failed accuracy check per day"
+              }
+            }
+          ],
+          "level": 6
+        },
+        {
+          "name": "Always More to Come",
+          "description": "In the heat of battle, you can let loose and unleash a devestating attack. 1/day as an action you can use a Z-Move. You do not need a Z-Crystal or Z-Ring",
+          "options": [],
+          "bonuses": [
+            {
+              "type": "action",
+              "name": "Z-Move",
+              "frequency": {
+                "quantity": 1,
+                "timeframe": "day"
+              },
+              "options": [
+                {
+                  "name": "Z-Move",
+                  "type": "z_move",
+                  "quantity": 1
+                }
+              ],
+              "description": "Use Z-Move"
+            }
+          ],
+          "level": 7
+        },
+        {
+          "name": "Triumph Together",
+          "description": "Friends help friends overcome challenges and you've got good friends. Whenever you attack a foe than an ally has already attacked that round, you may add +1 to your accuracy check.",
+          "options": [],
+          "bonuses": [
+            {
+              "type": "passive",
+              "name": "Triumph Together",
+              "description": "Add +1 to accuracy check when attacking a foe an ally has already attacked"
+            }
+          ],
+          "level": 7
+        },
+        {
+          "name": "My Destiny",
+          "description": "You've awoken a great power within yourself and can unleash a glimmering power for a short amount of time. 1/day you can Mega Evolve for 10 mins. You do not need a Mega Ring. When creating your Mega Evolution, decide which of your stats are boosted while Mega Evolved. You can modify Attack, Defense, Special Attack, Special Defense or Speed by a total of 4 points, but no individual stat can be modified by more than 2. You may not affect any stats negatively. You can alter types by replacing one type or by adding a type while you are Mega Evolved. You choose how your physical appearance changes appropriately.",
+          "options": [],
+          "bonuses": [
+            {
+              "type": "action",
+              "name": "Mega Evolution",
+              "description": {
+                "action_type": "free",
+                "frequency": {
+                  "quantity": 1,
+                  "timeframe": "day"
+                },
+                "options": [
+                  {
+                    "name": "Mega Evolution Stat Distribution",
+                    "type": "mega_evolution_stat_distribution",
+                    "quantity": 1
+                  }
+                ],
+                "scaling": {},
+                "text": "Mega Evolve for 10 mins"
+              }
+            }
+          ],
+          "level": 8
+        },
+        {
+          "name": "Lessons that I Hold",
+          "description": "You've learned enough to be whatever you need to be in battle. 3/week you may spend 4 hours working to learn a move that you've seen before that also matches your proficiencies. You may learn up to 4 moves in this way.",
+          "options": [],
+          "bonuses": [],
+          "level": 11
+        },
+        {
+          "name": "Put Myself to the Test",
+          "description": "Choose two different non-HP Stats to increase by 1. In addition, the first time you fail a skill check per day, you can reroll your skill check",
+          "options": [
+            {
+              "name": "Stat Increase",
+              "type": "non_hp_stats",
+              "quantity": 2
+            }
+          ],
+          "bonuses": [
+            {
+              "type": "passive",
+              "name": "Put Myself to the Test",
+              "frequency": {
+                "quantity": 1,
+                "timeframe": "day"
+              },
+              "description": "Reroll first failed skill check per day"
+            }
+          ]
+        },
+        {
+          "name": "Like No One Ever Was",
+          "description": "You've built up a tolerance to many different forms of harm and are ready to keep on fighting forward. If you be hit by an extremely effective attack, treat it as super effective. In addition, 3/day, once per round, you may reroll a check made to cure or ignore an affliction.",
+          "options": [],
+          "bonuses": [
+            {
+              "type": "passive",
+              "name": "Like No One Ever Was",
+              "description": {
+                "frequency": {
+                  "quantity": 3,
+                  "timeframe": "day"
+                },
+                "text": "Once per round, you may reroll a check to cure or ignore affliction"
+              }
+            },
+            {
+              "type": "passive",
+              "name": "Like No One Ever Was",
+              "description": "Treat extremely effective attacks against you as super effective"
+            }
+          ],
+          "level": 12
+        },
+        {
+          "name": "The Very Best Ever",
+          "description": "At this point, it almost seems like your only growth is the mastery of skill you already have. Choose a non-HP stat to increase by 1. In addition, choose three skills to become talent with. You may choose a skill you are already talented with.",
+          "options": [
+            {
+              "name": "Stat Increase",
+              "type": "non_hp_stats",
+              "quantity": 1
+            },
+            {
+              "name": "Skill Up",
+              "type": "skills",
+              "quantity": 3
+            }
+          ],
+          "level": 13
+        },
+        {
+          "name": "Way to Victory",
+          "description": "1/day, before you attack, you may use Way to Victory to make your attack guaranteed to succeed during your accuracy check and be a critical hit. You cannot use Way to Victory with Z-Moves, Max Moves, or G-Max moves.",
+          "options": [],
+          "bonuses": [
+            {
+              "type": "action",
+              "name": "Way to Victory",
+              "description": {
+                "action_type": "free",
+                "frequency": {
+                  "quantity": 1,
+                  "timeframe": "day"
+                },
+                "text": "Make your attack guaranteed to succeed and be a critical hit"
+              }
+            }
+          ],
+          "level": 14
+        },
+        {
+          "name": "Nothing Can Stop You",
+          "description": "You're a Pokemon on the path of destiny and you're never going to give up on your mission. The first time you would be knocked out per week, instead recover to half of your max HP. If you rest for two days without entering into Combat, Nothing Can Stop You refreshes its frequency and can be used again",
+          "options": [],
+          "bonuses": [
+            {
+              "type": "passive",
+              "name": "Nothing Can Stop You",
+              "description": {
+                "frequency": {
+                  "quantity": 1,
+                  "timeframe": "week"
+                },
+                "text": "Recover to half max HP instead of being knocked out"
+              }
+            }
+          ],
+          "level": 15
+        },
+        {
+          "name": "Let the Journey Begin",
+          "description": "You've finished many adventures but there is still always more for you to do and more ways for you to grow. Each new level, starting with level 16, choose a non-HP stat to increase by 1.",
+          "options": [
+            {
+              "name": "Stat Increase",
+              "type": "non_hp_stats",
+              "quantity": 1
+            }
+          ],
+          "bonuses": [],
+          "level": 16
+        }
+      ]
+    }
+  ]
+}

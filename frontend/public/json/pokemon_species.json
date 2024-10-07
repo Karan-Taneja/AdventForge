@@ -1,0 +1,224 @@
+{
+  "pokemon_species": [
+    {
+      "name": "Sneasel",
+      "type": ["Dark", "Ice"],
+      "base_stats": {
+        "hp": 36,
+        "attack": 10,
+        "defense": 6,
+        "specialAttack": 4,
+        "specialDefense": 8,
+        "speed": 12
+      },
+      "passives": [
+        {
+          "name": "Hone Claws",
+          "boosted_stats": ["attack"]
+        },
+        {
+          "name": "Inner Focus",
+          "description": "You are immune to being Stunned."
+        },
+        {
+          "name": "Keen Eye",
+          "description": "Your accuracy checks cannot be negatively affected by foes"
+        }
+      ],
+      "modifiers": {
+        "attack": 5,
+        "specialAttack": 2,
+        "effect": 5
+      },
+      "moves": [
+        {
+          "name": "Taunt",
+          "range": "Ranged(20ft)",
+          "type": "Dark",
+          "frequency": {
+            "quantity": 3,
+            "duration": "day"
+          },
+          "accuracy_check": "Effect",
+          "damage": null,
+          "description": "On hit, the target may only use attacks that target you or your allies for 1 min.",
+          "keywords": []
+        },
+        {
+          "name": "Quick Attack",
+          "range": "Melee",
+          "type": "Normal",
+          "frequency": {
+            "quantity": null,
+            "duration": "At-Will"
+          },
+          "accuracy_check": "attack",
+          "damage": {
+            "dice": [
+              {
+                "quantity": 2,
+                "sides": 6
+              }
+            ]
+          },
+          "description": "Quick Attack has Priority",
+          "keywords": ["Priority"]
+        },
+        {
+          "name": "Metal Claw",
+          "range": "Melee",
+          "type": "Steel",
+          "frequency": {
+            "quantity": null,
+            "duration": "At-Will"
+          },
+          "accuracy_check": "attack",
+          "damage": {
+            "dice": [
+              {
+                "quantity": 2,
+                "sides": 6
+              }
+            ]
+          },
+          "description": "On hit, your Attack is +1 for 10 mins.",
+          "keywords": []
+        }
+      ],
+      "egg_groups": ["Field"],
+      "hatch_rate": "10 Days",
+      "diet": "omnivore",
+      "size": "medium",
+      "weight:": "medium",
+      "habitat": ["Caves", "Forests", "Mountains", "Tundra"],
+      "proficiencies": ["Dark", "Ice", "Slashing", "Tricky"],
+      "skills": [
+        {
+          "name": "Freezer",
+          "description": "Can create ice"
+        },
+        {
+          "name": "Stealth",
+          "description": "Can make stealth skill checks"
+        }
+      ],
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/215.png"
+    },
+    {
+      "name": "Weavile",
+      "type": ["Dark", "Ice"],
+      "base_stats": {
+        "hp": 42,
+        "attack": 12,
+        "defense": 7,
+        "specialAttack": 5,
+        "specialDefense": 9,
+        "speed": 13
+      },
+      "passives": [
+        {
+          "name": "Hone Claws",
+          "boosted_stats": ["attack"]
+        },
+        {
+          "name": "Inner Focus",
+          "description": "You are immune to being Stunned."
+        },
+        {
+          "name": "Keen Eye",
+          "description": "Your accuracy checks cannot be negatively affected by foes"
+        },
+        {
+          "name": "Pickpocket",
+          "description": "When you are hit by a melee attack, you steal the offender's held item, if any."
+        },
+        {
+          "name": "Pressure",
+          "description": "If you are hit by a 3/day attack, the attacker can’t use that attack for the remainder of the day."
+        }
+      ],
+      "modifiers": {
+        "attack": 5,
+        "specialAttack": 2,
+        "effect": 5
+      },
+      "moves": [
+        {
+          "name": "Slash",
+          "range": "Melee",
+          "type": "Normal",
+          "frequency": {
+            "quantity": 3,
+            "duration": "day"
+          },
+          "accuracy_check": "attack",
+          "damage": {
+            "dice": [
+              {
+                "quantity": 3,
+                "sides": 8
+              }
+            ]
+          },
+          "description": "On hit, if you got 18 or higher on Accuracy Check, Slash is a critical hit."
+        },
+        {
+          "name": "Night Slash",
+          "range": "Melee",
+          "type": "Dark",
+          "frequency": {
+            "quantity": 3,
+            "duration": "day"
+          },
+          "accuracy_check": "attack",
+          "damage": {
+            "dice": [
+              {
+                "quantity": 3,
+                "sides": 8
+              }
+            ]
+          },
+          "description": "On hit, if you got 18 or higher on Accuracy Check, Night Slash is a critical hit."
+        },
+        {
+          "name": "Dark Pule",
+          "range": "Ranged(10ft)",
+          "type": "Dark",
+          "frequency": {
+            "quantity": 3,
+            "duration": "day"
+          },
+          "accuracy_check": "specialAttack",
+          "damage": {
+            "dice": [
+              {
+                "quantity": 3,
+                "sides": 8
+              }
+            ]
+          },
+          "description": "On hit, if you got 16 or higher on Accuracy Check, the target is Stunned."
+        }
+      ],
+      "egg_groups": ["Field"],
+      "hatch_rate": "10 Days",
+      "diet": "omnivore",
+      "size": "medium",
+      "weight:": "medium",
+      "habitat": ["Caves", "Forests", "Mountains", "Tundra"],
+      "proficiencies": ["Dark", "Ice", "Slashing", "Tricky"],
+      "skills": [
+        {
+          "name": "Freezer",
+          "description": "Can create ice"
+        },
+        {
+          "name": "Stealth",
+          "description": "Can make stealth skill checks"
+        }
+      ],
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/461.png"
+    }
+  ]
+}

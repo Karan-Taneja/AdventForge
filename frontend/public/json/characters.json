@@ -1,0 +1,21 @@
+{
+  "characters": [
+    {
+      "id": "0000001",
+      "userId": "147770",
+      "name": "Karma",
+      "character_type": "pokemon",
+      "description": {
+        "pokemon_species": "Sneasel",
+        "class": {
+          "class_name": "Pokemon",
+          "level": 5,
+          "advance_classes": []
+        },
+        "nature": "Adamant",
+        "options_chosen": [{}],
+        "image": "https://cdn.bulbagarden.net/upload/2/2c/215Sneasel.png"
+      }
+    }
+  ]
+}
