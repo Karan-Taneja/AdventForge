@@ -69,4 +69,3 @@ This project is licensed under the [MIT License](https://opensource.org/licenses
 
 - This project is a work in progress and may not yet have all the features of a full-fledged D&D Beyond clone.
 - The development roadmap and feature set are subject to change.
-```
